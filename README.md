@@ -1,6 +1,6 @@
 <br />
 <div Align="Center">
-<img src="assets/svgs/logo.png" width="100" alt="Logo artbuy"/>
+<img src="assets/svgs/logo.svg" width="100" alt="Logo artbuy"/>
 </div>
 
 # ARTBUY

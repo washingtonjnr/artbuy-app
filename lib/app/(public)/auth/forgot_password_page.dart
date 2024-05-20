@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RegisterWidget extends StatefulWidget {
-  const RegisterWidget({super.key});
+class RegisterPageWidget extends StatefulWidget {
+  const RegisterPageWidget({super.key});
 
   @override
-  State<RegisterWidget> createState() => _RegisterWidgetState();
+  State<RegisterPageWidget> createState() => _RegisterPageWidgetState();
 }
 
-class _RegisterWidgetState extends State<RegisterWidget> {
+class _RegisterPageWidgetState extends State<RegisterPageWidget> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

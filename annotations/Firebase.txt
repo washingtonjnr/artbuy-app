@@ -1,0 +1,18 @@
+Add firebase:
+  First step:
+    - Install Firebase CLI (https://firebase.google.com/docs/cli?hl=pt&authuser=0&_gl=1*m9arrm*_ga*MTA1NjUwOTA4My4xNzE1OTgyMTYx*_ga_CW55HF8NVT*MTcxNTk4MjE2MS4xLjEuMTcxNTk4MjUxMi42MC4wLjA.#install_the_firebase_cli)
+
+    - Auth (run: `firebase login`)
+
+    - Install o SDK do Flutter (https://docs.flutter.dev/get-started/install)
+
+    - Create a Flutter project (run: `flutter create`)
+
+  Second Step:
+    - Exec flutterfire (run: `dart pub global activate flutterfire_cli`)
+
+    - Export the path shown in the script response above, example: [export PATH="$PATH":"$HOME/.pub-cache/bin"]
+
+    - Config flutterfire (run: `flutterfire configure --project=FIREBASE_APP_NAME`)
+
+

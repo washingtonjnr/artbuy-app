@@ -1,5 +1,8 @@
+// Routes
 import 'package:artbuy/routes.dart';
+// Flutter
 import 'package:flutter/material.dart';
+// Lib
 import 'package:routefly/routefly.dart';
 
 class AppWidget extends StatefulWidget {
@@ -16,7 +19,7 @@ class _AppWidgetState extends State<AppWidget> {
       title: 'ARTBUY',
       routerConfig: Routefly.routerConfig(
         routes: routes, // GENERATED
-        initialPath: routePaths.splash,
+        initialPath: routePaths.auth.splash,
       ),
     );
   }

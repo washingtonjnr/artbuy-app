@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "853352845465",
+    "project_id": "artbuy-app",
+    "storage_bucket": "artbuy-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853352845465:android:5eb74aed97e9d0345de808",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLBQvA-FeeJnVNrL7C-9rWqXjkEbM0kBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,6 @@
+# Visual and presentation components of the application.
+
+- components: `Reusable widgets that are small and specific.`
+- layouts: `Main, reusable layout structures.`
+- screens: `Application screens.`
+- theme: `Theme definitions, such as colors and styles.`

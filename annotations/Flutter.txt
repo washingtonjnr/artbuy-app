@@ -1,0 +1,14 @@
+Routefly:
+  - Run:
+    `dart run routefly`
+
+
+Bloc extension:
+  - Dependencies:
+    Install flutter-bloc `flutter pub add flutter_bloc`
+    Install bloc extension
+
+  - Run:
+    - Right click on the folder where you want to use the block
+    - Click in "Bloc: new bloc" to generate folder
+

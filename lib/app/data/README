@@ -1,0 +1,6 @@
+# API integration and data management.
+
+- adapter: `model.fromJson and model.toJson`
+- models
+- repositories
+- services

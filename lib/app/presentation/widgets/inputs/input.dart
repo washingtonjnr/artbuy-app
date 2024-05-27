@@ -2,9 +2,12 @@ import 'package:artbuy/app/presentation/styles/colors.dart';
 import 'package:flutter/material.dart';
 
 class InputWidget extends StatelessWidget {
-  final IconData icon;
+  final IconData? icon;
   final String hintText;
+  final String? textError;
+  final String? initialValue;
   final bool obscureText;
+  final TextInputType? keyboardType;
   final Function(String) onChanged;
 
   const InputWidget({
@@ -15,19 +18,29 @@ class InputWidget extends StatelessWidget {
     required this.onChanged,
     //
     this.obscureText = false,
+    this.keyboardType = TextInputType.text,
+    //
+    this.textError,
+    this.initialValue,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      obscureText: obscureText,
+    final Color stateColor =
+        textError == null ? AppColors.primary : AppColors.status.error;
+
+    return TextFormField(
       onChanged: onChanged,
+      obscureText: obscureText,
+      initialValue: initialValue,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         filled: true,
         hintText: hintText,
-        prefixIcon: Icon(icon, color: AppColors.primary),
-        hintStyle: const TextStyle(color: AppColors.primary),
-        fillColor: AppColors.primary.withOpacity(0.1),
+        errorText: textError,
+        prefixIcon: Icon(icon, color: stateColor),
+        hintStyle: TextStyle(color: stateColor),
+        fillColor: (stateColor).withOpacity(0.1),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(24.0),
           borderSide: BorderSide.none,

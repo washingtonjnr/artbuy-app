@@ -7,7 +7,7 @@
 ![flutter][FLUTTER_BADGE]
 
 <p align="center">
-  <img src="assets/svgs/logo.svg" alt="ArtBuy logo" width="300px">
+  <img src="assets/logo.png" alt="ArtBuy logo" width="300px">
 </p>
 
 <h2 id="started">📌 About</h2>
@@ -25,6 +25,9 @@ Here you list all prerequisites necessary for running your project. For example:
 
 
 <h3>Running</h3>
+- Adjust envs on: [/assets/envs/]
+   - Create [.env.debug] and [.env.release] like a examples
+
 - Install Dependencies: `flutter pub get`
 
 - Run Project: `flutter run`

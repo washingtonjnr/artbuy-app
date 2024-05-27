@@ -1,14 +1,9 @@
 // Utils
-import 'package:artbuy/app/core/utils/session.dart';
 // Styles
 import 'package:artbuy/app/presentation/styles/colors.dart';
-// Routes
-import 'package:artbuy/routes.dart';
 // Flutter
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-// Lib
-import 'package:routefly/routefly.dart';
 
 class SplashPageWidget extends StatefulWidget {
   const SplashPageWidget({super.key});
@@ -37,11 +32,6 @@ class _SplashPageWidgetState extends State<SplashPageWidget>
     );
 
     _controller.forward();
-
-    Future.delayed(const Duration(seconds: 4), () async {
-      // Check state and navigate
-      await loadFromFuture();
-    });
   }
 
   @override
@@ -57,7 +47,16 @@ class _SplashPageWidgetState extends State<SplashPageWidget>
         opacity: _animation,
         child: Container(
           alignment: Alignment.center,
-          color: AppColors.primary,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                AppColors.primary.withOpacity(.5),
+                AppColors.primary.withOpacity(.8),
+                const Color(0xFF5B1955),
+              ],
+              tileMode: TileMode.clamp,
+            ),
+          ),
           child: SvgPicture.asset(
             'assets/svgs/logo.svg',
             width: 100,
@@ -68,19 +67,5 @@ class _SplashPageWidgetState extends State<SplashPageWidget>
         ),
       ),
     );
-  }
-
-  Future loadFromFuture() async {
-    try {
-      final accessToken = await AppLocalStorage.getAccessToken();
-
-      if (accessToken == null) {
-        return Routefly.navigate(routePaths.auth.signin);
-      }
-
-      return Routefly.navigate(routePaths.dashboard.home);
-    } on Exception {
-      return Routefly.navigate(routePaths.auth.signin);
-    }
   }
 }

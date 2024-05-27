@@ -46,6 +46,9 @@ dependencies:
   flutter_screenutil: ^5.9.1
   flutter_svg: ^2.0.10+1
   equatable: ^2.0.5
+  wave: ^0.2.2
+  fluttertoast: ^8.2.5
+  cpf_cnpj_validator: ^2.0.0
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,3 @@
 # BloC (Business Logic Component) [https://pub.dev/packages/flutter_bloc]
 
-- One bloc per page
-- Bloc name similar page name
+- One bloc per global data

@@ -1,42 +1,63 @@
 import 'package:routefly/routefly.dart';
 
-import 'app/(public)/auth/forgot_password_page.dart' as a4;
-import 'app/(public)/auth/signin_page.dart' as a3;
-import 'app/(public)/auth/signup_page.dart' as a6;
-import 'app/(public)/auth/splash_page.dart' as a5;
-import 'app/(public)/dashboard/home_page.dart' as a2;
+import 'app/(private)/auctions/auctions_page.dart' as a2;
+import 'app/(private)/home/home_page.dart' as a3;
+import 'app/(private)/recommendeds/recommendeds_page.dart' as a0;
+import 'app/(private)/settings_page.dart' as a1;
+import 'app/(public)/forgot_password/forgot_password_page.dart' as a6;
+import 'app/(public)/signin/signin_page.dart' as a4;
+import 'app/(public)/signup/signup_page.dart' as a7;
+import 'app/(public)/splash_page.dart' as a5;
 
 List<RouteEntity> get routes => [
   RouteEntity(
-    key: '/dashboard/home',
-    uri: Uri.parse('/dashboard/home'),
+    key: '/recommendeds',
+    uri: Uri.parse('/recommendeds'),
     routeBuilder: (ctx, settings) => Routefly.defaultRouteBuilder(
       ctx,
       settings,
-      const a2.HomePageWidget(),
+      const a0.RecommendedsPageWidget(),
     ),
   ),
   RouteEntity(
-    key: '/auth/signin',
-    uri: Uri.parse('/auth/signin'),
+    key: '/settings',
+    uri: Uri.parse('/settings'),
     routeBuilder: (ctx, settings) => Routefly.defaultRouteBuilder(
       ctx,
       settings,
-      const a3.SigninPageWidget(),
+      const a1.SettingsPageWidget(),
     ),
   ),
   RouteEntity(
-    key: '/auth/forgot_password',
-    uri: Uri.parse('/auth/forgot_password'),
+    key: '/auctions',
+    uri: Uri.parse('/auctions'),
     routeBuilder: (ctx, settings) => Routefly.defaultRouteBuilder(
       ctx,
       settings,
-      const a4.RegisterPageWidget(),
+      const a2.AuctionsPageWidget(),
     ),
   ),
   RouteEntity(
-    key: '/auth/splash',
-    uri: Uri.parse('/auth/splash'),
+    key: '/home',
+    uri: Uri.parse('/home'),
+    routeBuilder: (ctx, settings) => Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a3.HomePageWidget(),
+    ),
+  ),
+  RouteEntity(
+    key: '/signin',
+    uri: Uri.parse('/signin'),
+    routeBuilder: (ctx, settings) => Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a4.SigninPageWidget(),
+    ),
+  ),
+  RouteEntity(
+    key: '/splash',
+    uri: Uri.parse('/splash'),
     routeBuilder: (ctx, settings) => Routefly.defaultRouteBuilder(
       ctx,
       settings,
@@ -44,27 +65,33 @@ List<RouteEntity> get routes => [
     ),
   ),
   RouteEntity(
-    key: '/auth/signup',
-    uri: Uri.parse('/auth/signup'),
+    key: '/forgot_password',
+    uri: Uri.parse('/forgot_password'),
     routeBuilder: (ctx, settings) => Routefly.defaultRouteBuilder(
       ctx,
       settings,
-      const a6.SignupPageWidget(),
+      const a6.ForgotPasswordPageWidget(),
+    ),
+  ),
+  RouteEntity(
+    key: '/signup',
+    uri: Uri.parse('/signup'),
+    routeBuilder: (ctx, settings) => Routefly.defaultRouteBuilder(
+      ctx,
+      settings,
+      const a7.SignupPageWidget(),
     ),
   ),
 ];
 
 const routePaths = (
   path: '/',
-  dashboard: (
-    path: '/dashboard',
-    home: '/dashboard/home',
-  ),
-  auth: (
-    path: '/auth',
-    signin: '/auth/signin',
-    forgotPassword: '/auth/forgot_password',
-    splash: '/auth/splash',
-    signup: '/auth/signup',
-  ),
+  recommendeds: '/recommendeds',
+  settings: '/settings',
+  auctions: '/auctions',
+  home: '/home',
+  signin: '/signin',
+  splash: '/splash',
+  forgotPassword: '/forgot_password',
+  signup: '/signup',
 );

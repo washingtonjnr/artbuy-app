@@ -1,0 +1,50 @@
+##### FOLDER ARCHITECURE #####
+
+
+(public): [ALL PAGES]
+  [PAGE]: has view and bloc folder
+
+  auth: [before login pages]:
+    - signup
+    - signin
+    ...
+
+  dashboard: [after login pages]
+    - home
+    - user
+    ...
+
+_____________________________________________
+
+
+blocs: [GLOBAL MANAGEMENT STATE]
+  blocs per data:
+    - user
+    - categories
+    ...
+
+_____________________________________________
+
+
+core: [CORE]
+  - utils
+  - constants
+  ...
+
+_____________________________________________
+
+
+data: [API integration and data management]
+  - adapter
+  - models
+  - repositories
+  - services
+
+_____________________________________________
+
+
+presentation: [Visual and presentation components of the application.]
+  - components
+  - layouts
+  - screens
+  - theme

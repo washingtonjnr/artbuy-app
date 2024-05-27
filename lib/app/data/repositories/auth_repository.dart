@@ -2,40 +2,49 @@
 import 'package:artbuy/app/core/utils/session.dart';
 // Adapters
 import 'package:artbuy/app/data/adapters/signin_adapter.dart';
-// Models
-import 'package:artbuy/app/data/models/response_model.dart';
 import 'package:artbuy/app/data/models/signin_model.dart';
 import 'package:artbuy/app/data/models/signup_model.dart';
-// Service
 import 'package:artbuy/app/data/services/api.dart';
+import 'package:artbuy/routes.dart';
+import 'package:dio/dio.dart';
+import 'package:routefly/routefly.dart';
 
 class AuthRepository {
-  final _apiService = ApiService();
+  final Dio _apiService = ApiService.init();
 
-  Future<ResponseModel> signin(SigninModel model) async {
+  Future signout() async {
+    await AppLocalStorage.removeSession();
+
+    await Routefly.navigate(routePaths.signin);
+  }
+
+  Future<Response> signin(SigninModel model) async {
     final data = SigninAdapter.toJson(model);
 
-    final response = await _apiService.post("/auth/signin", data: data);
+    final Response response = await _apiService.post("/auth/signin", data: data);
 
-    _saveTokens(response.success, response.payload);
+    print("dasdasdresponse");
+    print(response);
+
+    _saveTokens(response.data?.success, response.data?.payload);
 
     return response;
   }
 
-  Future<ResponseModel> signup(SignUpModel data) async {
-    final ResponseModel response =
+  Future<Response> signup(SignUpModel data) async {
+    final Response response =
         await _apiService.post("/auth/signup", data: data);
 
-    _saveTokens(response.success, response.payload);
+    _saveTokens(response.data?.success, response.data?.payload);
 
     return response;
   }
 
-  Future<ResponseModel> refreshTokens(Map<String, String> data) async {
-    final ResponseModel response =
-        await _apiService.post("/auth/refresh", data: data);
+  Future<Response> refreshTokens(token) async {
+    final Response response =
+        await _apiService.post("/auth/refresh", data: { "refresh_token": token });
 
-    _saveTokens(response.success, response.payload);
+    _saveTokens(response.data?.success, response.data?.payload);
 
     return response;
   }

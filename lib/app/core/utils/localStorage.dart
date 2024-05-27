@@ -12,3 +12,15 @@ Future<String?> getStringLocalStorage(String name) async {
 
   return prefs.getString(name);
 }
+
+Future<bool> removeStringLocalStorage(String name) async {
+  try {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.remove(name);
+
+    return true;
+  } catch (e) {
+    return false;
+  }
+}

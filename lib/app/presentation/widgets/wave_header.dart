@@ -36,14 +36,15 @@ class _HeaderHaveWidgetState extends State<HeaderHaveWidget> {
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                  colors: [
-                    AppColors.primary.withOpacity(0.4),
-                    AppColors.primary.withOpacity(0.9),
-                  ],
-                  begin: const FractionalOffset(0.0, 0.0),
-                  end: const FractionalOffset(1.0, 0.0),
-                  stops: [0.0, 1.0],
-                  tileMode: TileMode.clamp),
+                colors: [
+                  AppColors.primary.withOpacity(0.4),
+                  AppColors.primary.withOpacity(0.9),
+                ],
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: const [0.0, 1.0],
+                tileMode: TileMode.clamp,
+              ),
             ),
           ),
         ),
@@ -57,14 +58,15 @@ class _HeaderHaveWidgetState extends State<HeaderHaveWidget> {
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                  colors: [
-                    AppColors.primary.withOpacity(0.4),
-                    AppColors.primary.withOpacity(0.9),
-                  ],
-                  begin: const FractionalOffset(0.0, 0.0),
-                  end: const FractionalOffset(1.0, 0.0),
-                  stops: const [0.0, 1.0],
-                  tileMode: TileMode.clamp),
+                colors: [
+                  AppColors.primary.withOpacity(0.4),
+                  AppColors.primary.withOpacity(0.6),
+                ],
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: const [0.0, 1.0],
+                tileMode: TileMode.clamp,
+              ),
             ),
           ),
         ),
@@ -78,19 +80,20 @@ class _HeaderHaveWidgetState extends State<HeaderHaveWidget> {
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                  colors: [
-                    AppColors.primary,
-                    AppColors.primary.withOpacity(.8),
-                  ],
-                  begin: const FractionalOffset(0.0, 0.0),
-                  end: const FractionalOffset(1.0, 0.0),
-                  stops: [0.0, 1.0],
-                  tileMode: TileMode.clamp),
+                colors: [
+                  AppColors.primary.withOpacity(.4),
+                  const Color(0xFF5B1955),
+                ],
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: const [0.0, 1.0],
+                tileMode: TileMode.clamp,
+              ),
             ),
           ),
         ),
         SizedBox(
-          height: _height - 40,
+          height: _height - 70,
           child: Center(child: _item),
         ),
       ],
@@ -99,8 +102,10 @@ class _HeaderHaveWidgetState extends State<HeaderHaveWidget> {
 }
 
 class ShapeClipper extends CustomClipper<Path> {
-  List<Offset> _offsets = [];
-  ShapeClipper(this._offsets);
+  List<Offset> offsets = [];
+
+  ShapeClipper(this.offsets);
+
   @override
   Path getClip(Size size) {
     var path = Path();
@@ -108,9 +113,9 @@ class ShapeClipper extends CustomClipper<Path> {
     path.lineTo(0.0, size.height - 20);
 
     path.quadraticBezierTo(
-        _offsets[0].dx, _offsets[0].dy, _offsets[1].dx, _offsets[1].dy);
+        offsets[0].dx, offsets[0].dy, offsets[1].dx, offsets[1].dy);
     path.quadraticBezierTo(
-        _offsets[2].dx, _offsets[2].dy, _offsets[3].dx, _offsets[3].dy);
+        offsets[2].dx, offsets[2].dy, offsets[3].dx, offsets[3].dy);
 
     path.lineTo(size.width, 0.0);
     path.close();

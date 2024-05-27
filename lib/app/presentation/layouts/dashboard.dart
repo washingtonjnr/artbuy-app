@@ -1,6 +1,9 @@
 // Bloc
 import 'package:artbuy/app/blocs/user/user_bloc.dart';
+// Constants
+import 'package:artbuy/app/core/constants/pages.dart';
 import 'package:artbuy/app/core/constants/status.dart';
+// Styles
 import 'package:artbuy/app/presentation/styles/colors.dart';
 // Flutter
 import 'package:flutter/material.dart';
@@ -46,24 +49,61 @@ class _AuthDashboardState extends State<AuthDashboard> {
 
         return Scaffold(
           backgroundColor: AppColors.background.lightest,
+          // APP BAR
           appBar: AppBar(
             shadowColor: Colors.white,
             elevation: 1,
             title: Center(
               child: SvgPicture.asset(
                 'assets/svgs/logo.svg',
-                width: 35,
+                width: 40,
                 color: AppColors.primary,
                 alignment: Alignment.center,
               ),
             ),
           ),
-          body: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: widget.builder(context, state),
+          // BODY
+          body: SafeArea(
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: widget.builder(context, state),
+                ),
+              ],
             ),
           ),
+          // BOTTOM MENU
+          bottomSheet: Container(
+            color: Colors.red,
+            width: MediaQuery.of(context).size.width,
+            height: 80.0,
+          ),
+          bottomNavigationBar: Container(
+            color: Colors.red,
+            width: MediaQuery.of(context).size.width,
+            height: 80.0,
+            child: BottomNavigationBar(
+              backgroundColor: Colors.red,
+              items: List.generate(bottomNavItems.length, (int index) {
+                final item = bottomNavItems[index];
+
+                return BottomNavigationBarItem(
+                  icon: item.icon,
+                  label: item.name,
+                  backgroundColor: AppColors.primary,
+                );
+              }),
+              onTap: (index) async {
+                print("PLMD");
+                print(index);
+                print(bottomNavItems[index]);
+
+                await bottomNavItems[index].action;
+              },
+            ),
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         );
       }),
     );
